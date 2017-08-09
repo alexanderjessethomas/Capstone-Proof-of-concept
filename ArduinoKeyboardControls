@@ -1,0 +1,87 @@
+//Keyboard begin
+
+void setup() {
+  // make pin 2 an input and turn on the 
+  // pullup resistor so it goes high unless
+  // connected to ground:
+  pinMode(2, INPUT_PULLUP);
+  Keyboard.begin();
+}
+
+//keyboard press
+
+// use this option for OSX:
+char ctrlKey = KEY_LEFT_GUI;
+// use this option for Windows and Linux:
+//  char ctrlKey = KEY_LEFT_CTRL;  
+
+void setup() {
+  // make pin 2 an input and turn on the 
+  // pullup resistor so it goes high unless
+  // connected to ground:
+  pinMode(2, INPUT_PULLUP);
+  // initialize control over the keyboard:
+  Keyboard.begin();
+}
+
+void loop() {
+  while (digitalRead(2) == HIGH) {
+    // do nothing until pin 2 goes low
+    delay(500);
+  }
+  delay(1000);
+  // new document:
+  Keyboard.press(ctrlKey);
+  Keyboard.press('n');
+  delay(100);
+  Keyboard.releaseAll();
+  // wait for new window to open:
+  delay(1000);
+}
+
+
+//keyboard release
+// use this option for OSX:
+char ctrlKey = KEY_LEFT_GUI;
+// use this option for Windows and Linux:
+//  char ctrlKey = KEY_LEFT_CTRL;  
+
+void setup() {
+  // make pin 2 an input and turn on the 
+  // pullup resistor so it goes high unless
+  // connected to ground:
+  pinMode(2, INPUT_PULLUP);
+  // initialize control over the keyboard:
+  Keyboard.begin();
+}
+
+void loop() {
+  while (digitalRead(2) == HIGH) {
+    // do nothing until pin 2 goes low
+    delay(500);
+  }
+  delay(1000);
+  // new document:
+  Keyboard.press(ctrlKey);
+  Keyboard.press('n');
+  delay(100);
+  Keyboard.releaseAll();
+  // wait for new window to open:
+  delay(1000);
+}
+void loop() {
+  //if the button is pressed
+  if(digitalRead(2)==LOW){
+    //Send the message
+    Keyboard.print("Hello!");
+  }
+}
+
+
+//Key	Hexadecimal value	Decimal value
+/*
+KEY_UP_ARROW	0xDA	218
+KEY_DOWN_ARROW	0xD9	217
+KEY_LEFT_ARROW	0xD8	216
+KEY_RIGHT_ARROW	0xD7	215
+*/
